@@ -1,9 +1,7 @@
-'use strict'
-
 const express = require('express');
 const contentful = require('contentful');
-const path = require('path');
-const bodyParser = require('body-parser');
+// const path = require('path');
+// const bodyParser = require('body-parser');
 const api = require('./api');
 
 const SPACE_ID = api.SPACE_ID;
@@ -12,73 +10,21 @@ const ACCESS_TOKEN = api.ACCESS_TOKEN;
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
   space: SPACE_ID,
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  accessToken: ACCESS_TOKEN
+  // This is the access token for this space.
+  // Normally you get both ID and the token in the Contentful web app
+  accessToken: ACCESS_TOKEN,
 });
 
 const app = express();
 
-
-app.get('/', (req, res) => {
-  client.getEntries({
-    'content_type': 'post'
-  })
-  .then((data) => {
-    parseReponse(res, data);
-  })
-  .catch((error) => {
-    console.log('\nError occurred while fetching Content Types:');
-    console.error(error);
-  });
-});
-
-app.get('/all-data', (req, res) => {
-  client.getEntries({
-    'content_type': 'post'
-  })
-  .then((data) => {
-    res.json(data)
-  })
-  .catch((error) => {
-    console.log('\nError occurred while fetching Content Types:');
-    console.error(error);
-  });
-});
-
-app.get('/home', (req, res) => {
-  client.getEntries({
-    'content_type': 'post'
-  })
-  .then((data) => {
-    parseReponseForHomepage(res, data);
-  })
-  .catch((error) => {
-    console.log('\nError occurred while fetching Content Types:');
-    console.error(error);
-  });
-});
-
-app.get('/post/:id', (req, res) => {
-  client.getEntries({
-    'content_type': 'post',
-    'sys.id': req.params.id
-  })
-  .then((data) => {
-    parseReponse(res, data);
-  })
-  .catch((error) => {
-    console.log('\nError occurred while fetching Content Types:');
-    console.error(error);
-  });
-});
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Production Express Server on PORT: ${PORT}`);
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
 function parseReponse(res, data) {
-  let posts = [];
+  const posts = [];
   data.items.map((item) => {
     const itemObject = {
       title: '',
@@ -86,35 +32,35 @@ function parseReponse(res, data) {
       heroImage: {
         url: '',
         title: '',
-        description: ''
+        description: '',
       },
       tags: '',
-      photoBlocks: []
+      photoBlocks: [],
     };
-    itemObject.title =  item.fields.title;
-    itemObject.id = item.sys.id,
+    itemObject.title = item.fields.title;
+    itemObject.id = item.sys.id;
     itemObject.heroImage.url = item.fields.heroImage.fields.file.url;
     itemObject.heroImage.description = item.fields.heroImage.fields.description;
     itemObject.heroImage.title = item.fields.heroImage.fields.title;
     itemObject.tags = item.fields.tags;
     item.fields.photoBlockModels.map((photoBlock) => {
-      let photoBlockObject = {
+      const photoBlockObject = {
         caption: '',
         galleryType: '',
         photos: [],
         copy: '',
-        tags: []
-      }
+        tags: [],
+      };
       photoBlockObject.caption = photoBlock.fields.title;
       photoBlockObject.galleryType = photoBlock.fields.galleryType;
       photoBlockObject.copy = photoBlock.fields.photoCopy;
       photoBlockObject.tags = photoBlock.fields.tags;
       photoBlock.fields.photos.map((photo) => {
-        let photoObject = {
+        const photoObject = {
           url: '',
           title: '',
-          description: ''
-        }
+          description: '',
+        };
         photoObject.url = photo.fields.file.url;
         photoObject.title = photo.fields.title;
         photoObject.description = photo.fields.description;
@@ -129,7 +75,7 @@ function parseReponse(res, data) {
 }
 
 function parseReponseForHomepage(res, data) {
-  let posts = [];
+  const posts = [];
   data.items.map((item) => {
     const itemObject = {
       title: '',
@@ -137,11 +83,11 @@ function parseReponseForHomepage(res, data) {
       heroImage: {
         url: '',
         title: '',
-        description: ''
+        description: '',
       },
-      tags: ''
+      tags: '',
     };
-    itemObject.title =  item.fields.title;
+    itemObject.title = item.fields.title;
     itemObject.id = item.sys.id;
     itemObject.heroImage.url = item.fields.heroImage.fields.file.url;
     itemObject.heroImage.description = item.fields.heroImage.fields.description;
@@ -152,3 +98,61 @@ function parseReponseForHomepage(res, data) {
   });
   res.json(posts);
 }
+
+app.get('/', (req, res) => {
+  client.getEntries({
+    content_type: 'post',
+  })
+  .then((data) => {
+    parseReponse(res, data);
+  })
+  .catch((error) => {
+    console.log('\nError occurred while fetching Content Types:');
+    console.error(error);
+  });
+});
+
+app.get('/all-data', (req, res) => {
+  client.getEntries({
+    content_type: 'post',
+  })
+  .then((data) => {
+    res.json(data);
+  })
+  .catch((error) => {
+    console.log('\nError occurred while fetching Content Types:');
+    console.error(error);
+  });
+});
+
+app.get('/home', (req, res) => {
+  client.getEntries({
+    content_type: 'post',
+  })
+  .then((data) => {
+    parseReponseForHomepage(res, data);
+  })
+  .catch((error) => {
+    console.log('\nError occurred while fetching Content Types:');
+    console.error(error);
+  });
+});
+
+app.get('/post/:id', (req, res) => {
+  client.getEntries({
+    content_type: 'post',
+    'sys.id': req.params.id,
+  })
+  .then((data) => {
+    parseReponse(res, data);
+  })
+  .catch((error) => {
+    console.log('\nError occurred while fetching Content Types:');
+    console.error(error);
+  });
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Production Express Server on PORT: ${PORT}`);
+});

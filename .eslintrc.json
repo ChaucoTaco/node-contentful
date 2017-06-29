@@ -1,0 +1,16 @@
+{
+    "extends": "airbnb",
+    "installedESLint": true,
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
+    "skipBlankLines": true,
+    "rules": {
+      "arrow-body-style": ["off"],
+      "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
+      "class-methods-use-this": "off",
+      "array-callback-return": "off"
+    }
+}
