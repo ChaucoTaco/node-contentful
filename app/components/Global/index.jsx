@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styles from './index.scss';
 
 class HomeWrapper extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class HomeWrapper extends Component {
         {
           this.state.data.map((item, key) => {
             return (
-              <div>
+              <div className={styles.testCss}>
                 <h1 key={key}> {item.title} </h1>
                 <img src={item.heroImage.url} role="presentation" />
               </div>

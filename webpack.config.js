@@ -17,10 +17,31 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   plugins: [HtmlWebpackPluginConfig],
+  devServer: {
+    inline: true,
+    port: 8008,
+  },
 };
