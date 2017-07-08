@@ -1,0 +1,23 @@
+@import '../globals/variables.scss';
+
+.homepageCard {
+  flex-grow: 1;
+  margin: 0 15px;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+}
+
+.title {
+  background-color: $black;
+  color: $white;
+  font-family: $dosis;
+  font-size: $fs-3;
+  opacity: 0.8;
+  padding: 2rem 4rem;
+  position: absolute;
+  right: 0;
+  top: 5rem;
+}

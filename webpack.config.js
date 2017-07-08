@@ -32,6 +32,14 @@ module.exports = {
           {
             loader: 'sass-loader',
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('autoprefixer')(),
+              ],
+            },
+          },
         ],
       },
     ],
@@ -41,6 +49,7 @@ module.exports = {
   },
   plugins: [HtmlWebpackPluginConfig],
   devServer: {
+    historyApiFallback: true,
     inline: true,
     port: 8008,
   },
