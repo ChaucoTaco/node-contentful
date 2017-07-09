@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/home/';
 import Post from './components/post/';
-import './components/globals/styles.scss';
 import './components/globals/reset.scss';
+import './components/globals/styles.scss';
 
 const App = () => (
   <Router>

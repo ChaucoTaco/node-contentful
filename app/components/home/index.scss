@@ -1,15 +1,23 @@
+@import '../globals/variables.scss';
+
 .homepage {
   width: 100%;
 }
 
 .headerContainer {
-
+  text-align: center;
+  margin: 0 auto;
 }
 
 .header {
-
+  font-size: 6vw;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 3rem 0 0;
+  position: relative;
 }
 
 .quote {
-
+  font-size: $fs-2;
+  margin-bottom: 3rem;
 }
