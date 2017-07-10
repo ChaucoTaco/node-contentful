@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
-import Card from '../card/';
+import Hero from '../hero';
+import PhotoBlockWrapper from '../photo-block-wrapper';
 
 class PostWrapper extends Component {
   constructor(props) {
@@ -22,17 +23,11 @@ class PostWrapper extends Component {
       .catch((err) => { console.log(err); });
   }
   render() {
+    const data = this.state.data[0];
     return (
-      <div className="homepage">
-        <div className="cardHolder">
-          {
-              this.state.data.map((item, key) => {
-                return (
-                  <Card key={key} data={item} />
-                );
-              })
-          }
-        </div>
+      <div className={styles.postPage}>
+        <Hero data={data} />
+        <PhotoBlockWrapper data={data} />
       </div>
     );
   }
@@ -41,5 +36,9 @@ class PostWrapper extends Component {
 export default PostWrapper;
 
 PostWrapper.PropTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.object,
+    }),
+  }),
 };

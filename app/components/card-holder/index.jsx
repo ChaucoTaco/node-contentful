@@ -37,7 +37,7 @@ class CardHolder extends Component {
   render() {
     const rowArray = this.state.rowArray;
     return (
-      <div>
+      <div className={styles.cardWrapper}>
         {
           rowArray.map((row, key) => {
             return (

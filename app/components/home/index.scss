@@ -2,6 +2,8 @@
 
 .homepage {
   width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
 }
 
 .headerContainer {
@@ -19,5 +21,5 @@
 
 .quote {
   font-size: $fs-2;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
 }

@@ -1,0 +1,33 @@
+@import '../globals/variables.scss';
+
+.photoBlock {
+  max-width: 1024px;
+  margin: 0 auto 12rem;
+  padding: 0 1rem;
+}
+
+.imageWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.imageContainer {
+  flex-grow: 1;
+  min-width: 50%;
+  flex-basis: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 100%;
+}
+
+.title {
+  padding: 0 3rem;
+  font-size: $fs-3;
+  text-align: center;
+}
