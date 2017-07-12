@@ -4,8 +4,8 @@ const contentful = require('contentful');
 // const bodyParser = require('body-parser');
 const api = require('./api');
 
-const SPACE_ID = api.SPACE_ID;
-const ACCESS_TOKEN = api.ACCESS_TOKEN;
+const SPACE_ID = process.env.API_SPACE_ID || api.SPACE_ID;
+const ACCESS_TOKEN = process.env.API_ACCESS_TOKEN || api.ACCESS_TOKEN;
 
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
