@@ -29,12 +29,10 @@ class Hero extends Component {
     return (
       <div className={styles.heroWrapper}>
         <div className={styles.header} style={backgroundImageUrl}>
-          <h1 className={styles.title}> {data.title}</h1>
-        </div>
-        <div className={styles.introWrapper}>
-          <h2 className={styles.intro}>
-            {data.heroImage.title}
-          </h2>
+          <div className={styles.paragraphHolder}>
+            <h1 className={styles.title}> {data.title}</h1>
+            <h2 className={styles.intro}>{data.heroImage.title}</h2>
+          </div>
         </div>
       </div>
     )

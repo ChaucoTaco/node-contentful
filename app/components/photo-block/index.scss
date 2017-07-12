@@ -6,6 +6,21 @@
   padding: 0 1rem;
 }
 
+.photoBlockSpread {
+  max-width: 1024px;
+  margin: 0 auto 12rem;
+  padding: 0 1rem;
+}
+
+.photoBlockFullBleed {
+  max-width: 100%;
+  padding: 0;
+
+  .imageContainer {
+    padding: 0;
+  }
+}
+
 .imageWrapper {
   display: flex;
   width: 100%;

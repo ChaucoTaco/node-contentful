@@ -1,18 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
+import cx from 'classnames';
 
 const PhotoBlock = (props) => {
   const data = props.data;
+  let photoBlockType;
+
+  switch (data.galleryType) {
+    case 'full-bleed':
+      photoBlockType = styles.photoBlockFullBleed;
+      break;
+    case 'spread':
+      photoBlockType = styles.photoBlockSpread;
+      break;
+    default:
+      photoBlockType = styles.photoBlock;
+  }
+
 
   return (
-    <div className={styles.photoBlock}>
+    <div className={photoBlockType}>
       <div className={styles.imageWrapper}>
         {
           data.photos.map((item, key) => {
             return (
               <div className={styles.imageContainer} key={key}>
-                <img className={styles.image} src={item.url} role="presentation"/>
+                <img className={styles.image} src={item.url} role="presentation" />
               </div>
             );
           })
