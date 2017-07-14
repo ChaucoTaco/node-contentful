@@ -30,14 +30,14 @@ class Hero extends Component {
       <div className={styles.heroWrapper}>
         <div className={styles.header} style={backgroundImageUrl}>
           <div className={styles.paragraphHolder}>
-            <h1 className={styles.title}> {data.title}</h1>
-            <h2 className={styles.intro}>{data.heroImage.title}</h2>
+            <h1 className={styles.title}> {data.heroImage.title}</h1>
+            <h2 className={styles.intro}>{data.heroImage.description}</h2>
           </div>
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Hero;
 

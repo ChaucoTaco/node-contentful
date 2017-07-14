@@ -47,7 +47,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  plugins: [HtmlWebpackPluginConfig],
+  plugins: [
+    HtmlWebpackPluginConfig,
+  ],
   devServer: {
     historyApiFallback: true,
     inline: true,

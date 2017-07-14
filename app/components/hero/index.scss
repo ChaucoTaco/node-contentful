@@ -1,7 +1,11 @@
 @import '../globals/variables.scss';
 
 .heroWrapper {
-  margin-bottom: 12rem;
+  margin-bottom: 2rem;
+
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
 }
 
 .header {
@@ -9,7 +13,6 @@
   background-position: center;
   background-size: cover;
   position: relative;
-  margin-bottom: 12rem;
 
   &:before {
     background-color: $black;

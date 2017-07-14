@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
 import styles from './index.scss';
 import PhotoBlock from '../photo-block';
 
@@ -23,11 +24,17 @@ class PhotoBlockWrapper extends Component {
   render() {
     const data = this.state.data;
     return (
-      <div>
+      <div className={styles.photoWrapper}>
         {
           data.photoBlocks.map((item, key) => {
             return (
-              <PhotoBlock data={item} key={key} />
+              <LazyLoad
+                height={500}
+                offset={500}
+                key={key}
+              >
+                <PhotoBlock data={item} />
+              </LazyLoad>
             );
           })
         }

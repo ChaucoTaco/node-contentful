@@ -7,8 +7,10 @@
 }
 
 .headerContainer {
-  text-align: center;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6rem;
 }
 
 .header {
@@ -20,5 +22,51 @@
 
 .quote {
   font-size: $fs-2;
-  margin-bottom: 6rem;
+  position: relative;
+  padding-bottom: 2rem;
+
+  &:before {
+    content: '"';;
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    font-family: $sans;
+  }
+
+  &:after {
+    content: '"';
+    position: absolute;
+    right: -1rem;
+    top: 0;
+    font-family: $sans;
+  }
+}
+
+.about {
+  position: relative;
+  font-size: $fs-3;
+  padding-top: 1.5rem;
+  text-align: center;
+  width: 50vw;
+  line-height: 1.25;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    border-top: 1px solid $black;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    top: 0;
+  }
+}
+
+.aboutCopy {
+  margin-bottom: 1rem;
+}
+
+.emoji {
+  font-size: $fs-2;
+  position: relative;
+  top: 3px;
 }

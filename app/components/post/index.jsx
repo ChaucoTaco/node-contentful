@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './index.scss';
 import Hero from '../hero';
 import PhotoBlockWrapper from '../photo-block-wrapper';
@@ -12,9 +13,10 @@ class PostWrapper extends Component {
       data: [],
     };
     this.props = props;
+    window.scrollTo(0, 0);
   }
   componentDidMount() {
-    axios.get(`http://localhost:8080/post/${this.props.match.params.id}`)
+    axios.get(`https://dreamchasers.herokuapp.com/post/${this.props.match.params.id}`)
       .then((data) => {
         this.setState({
           data: data.data,
@@ -28,6 +30,7 @@ class PostWrapper extends Component {
       <div className={styles.postPage}>
         <Hero data={data} />
         <PhotoBlockWrapper data={data} />
+        <Link to="/" className={styles.homeLink}> Home </Link>
       </div>
     );
   }

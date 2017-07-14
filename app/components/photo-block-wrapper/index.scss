@@ -1,40 +1,21 @@
 @import '../globals/variables.scss';
 
-.heroWrapper {
-  margin-bottom: 12rem;
+.photoWrapper {
+  padding-bottom: 6rem;
 }
 
-.header {
-  height: 40vh;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  margin-bottom: 3rem;
 
-  &:before {
-    background-color: $black;
-    content: '';
-    height: 100%;
-    left: 0;
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
+.content.enter {
+  opacity: 0.01;
+  transition: opacity 1.5s ease-in;
 }
-
-.title {
-  color: $white;
-  font-size: 6vw;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+.content.enter.enterActive {
+  opacity: 1;
 }
-
-.intro {
-  text-align: center;
-  font-size: 3vw;
-  width: 80vw;
-  margin: 0 auto;
+.content.leave {
+  opacity: 1;
+  transition: opacity 1.5s ease-in;
+}
+.content.leave.leaveActive {
+  opacity: 0.01;
 }

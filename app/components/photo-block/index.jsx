@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
-import cx from 'classnames';
 
 const PhotoBlock = (props) => {
   const data = props.data;
@@ -13,6 +12,12 @@ const PhotoBlock = (props) => {
       break;
     case 'spread':
       photoBlockType = styles.photoBlockSpread;
+      break;
+    case 'stack-left':
+      photoBlockType = styles.photoBlockStackLeft;
+      break;
+    case 'stack-right':
+      photoBlockType = styles.photoBlockStackRight;
       break;
     default:
       photoBlockType = styles.photoBlock;

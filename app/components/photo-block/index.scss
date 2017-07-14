@@ -2,22 +2,63 @@
 
 .photoBlock {
   max-width: 1024px;
-  margin: 0 auto 12rem;
+  margin: 0 auto 2rem;
   padding: 0 1rem;
+
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
 }
 
 .photoBlockSpread {
   max-width: 1024px;
-  margin: 0 auto 12rem;
+  margin: 0 auto 2rem;
   padding: 0 1rem;
+
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
 }
 
 .photoBlockFullBleed {
   max-width: 100%;
   padding: 0;
+  margin-bottom: 2rem;
+
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
 
   .imageContainer {
     padding: 0;
+  }
+}
+
+.photoBlockStackRight {
+  max-width: 1024px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+
+  .imageContainer:last-child {
+    flex-grow: 2.25;
+  }
+
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
+}
+
+.photoBlockStackLeft {
+  max-width: 1024px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+
+  .imageContainer:first-child {
+    flex-grow: 2.25;
+  }
+
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
   }
 }
 
@@ -26,23 +67,25 @@
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .imageContainer {
   flex-grow: 1;
-  min-width: 50%;
+  min-width: 25%;
   flex-basis: 0;
-  padding: 10px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
 .image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .title {
   padding: 0 3rem;
-  font-size: $fs-3;
+  font-size: $fs-2;
   text-align: center;
 }
