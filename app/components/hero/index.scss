@@ -1,10 +1,10 @@
 @import '../globals/variables.scss';
 
 .heroWrapper {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 
   @include breakpoint($tablet) {
-    margin-bottom: 6rem;
+    margin-bottom: 12rem;
   }
 }
 
@@ -42,6 +42,8 @@
   font-family: $sans;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid $white;
+  text-align: center;
+  line-height: 1.25;
 }
 
 .intro {
@@ -51,4 +53,5 @@
   margin: 0 auto;
   color: $white;
   font-style: italic;
+  line-height: 1.25;
 }

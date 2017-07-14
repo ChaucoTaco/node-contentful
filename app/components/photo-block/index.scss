@@ -2,9 +2,8 @@
 
 .photoBlock {
   max-width: 1024px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   padding: 0 1rem;
-
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -12,9 +11,8 @@
 
 .photoBlockSpread {
   max-width: 1024px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   padding: 0 1rem;
-
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -23,8 +21,6 @@
 .photoBlockFullBleed {
   max-width: 100%;
   padding: 0;
-  margin-bottom: 2rem;
-
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -36,29 +32,27 @@
 
 .photoBlockStackRight {
   max-width: 1024px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   padding: 0 1rem;
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
 
   .imageContainer:last-child {
     flex-grow: 2.25;
-  }
-
-  @include breakpoint($tablet) {
-    margin-bottom: 6rem;
   }
 }
 
 .photoBlockStackLeft {
   max-width: 1024px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   padding: 0 1rem;
+  @include breakpoint($tablet) {
+    margin-bottom: 6rem;
+  }
 
   .imageContainer:first-child {
     flex-grow: 2.25;
-  }
-
-  @include breakpoint($tablet) {
-    margin-bottom: 6rem;
   }
 }
 
@@ -67,15 +61,19 @@
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
 .imageContainer {
   flex-grow: 1;
-  min-width: 25%;
+  min-width: 50%;
   flex-basis: 0;
   padding: 0 10px;
   box-sizing: border-box;
+  margin-bottom: 4rem;
+
+  @include breakpoint($tablet) {
+    margin-bottom: 2rem;
+  }
 }
 
 .image {
@@ -88,4 +86,10 @@
   padding: 0 3rem;
   font-size: $fs-2;
   text-align: center;
+  line-height: 1.25;
+  margin-bottom: 4rem;
+
+  @include breakpoint($tablet) {
+    margin: 1rem 0 2rem;
+  }
 }

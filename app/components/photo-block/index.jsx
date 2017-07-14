@@ -37,7 +37,9 @@ const PhotoBlock = (props) => {
           })
         }
       </div>
-      <h1 className={styles.title}> {data.copy}</h1>
+      {
+        data.copy && <h1 className={styles.title}> {data.copy}</h1>
+      }
     </div>
   );
 };
