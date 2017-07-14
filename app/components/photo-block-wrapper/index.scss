@@ -3,19 +3,3 @@
 .photoWrapper {
   padding-bottom: 6rem;
 }
-
-
-.content.enter {
-  opacity: 0.01;
-  transition: opacity 1.5s ease-in;
-}
-.content.enter.enterActive {
-  opacity: 1;
-}
-.content.leave {
-  opacity: 1;
-  transition: opacity 1.5s ease-in;
-}
-.content.leave.leaveActive {
-  opacity: 0.01;
-}
