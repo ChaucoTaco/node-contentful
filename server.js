@@ -99,6 +99,31 @@ function parseReponseForHomepage(res, data) {
   res.json(posts);
 }
 
+function parseReponseFromHomepage(res, data) {
+  const posts = [];
+  data.items[0].fields.homepageStories.map((item) => {
+    const itemObject = {
+      title: '',
+      id: '',
+      heroImage: {
+        url: '',
+        title: '',
+        description: '',
+      },
+      tags: '',
+    };
+    itemObject.title = item.fields.title;
+    itemObject.id = item.sys.id;
+    itemObject.heroImage.url = item.fields.heroImage.fields.file.url;
+    itemObject.heroImage.description = item.fields.heroImage.fields.description;
+    itemObject.heroImage.title = item.fields.heroImage.fields.title;
+    itemObject.tags = item.fields.tags;
+
+    posts.push(itemObject);
+  });
+  res.json(posts);
+}
+
 app.get('/', (req, res) => {
   client.getEntries({
     content_type: 'post',
@@ -126,6 +151,19 @@ app.get('/all-data', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
+  client.getEntries({
+    content_type: 'homepage',
+  })
+  .then((data) => {
+    parseReponseFromHomepage(res, data);
+  })
+  .catch((error) => {
+    console.log('\nError occurred while fetching Content Types:');
+    console.error(error);
+  });
+});
+
+app.get('/home-unsort', (req, res) => {
   client.getEntries({
     content_type: 'post',
   })

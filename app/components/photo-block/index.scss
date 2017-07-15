@@ -65,14 +65,15 @@
 
 .imageContainer {
   flex-grow: 1;
-  min-width: 50%;
   flex-basis: 0;
   padding: 0 10px;
   box-sizing: border-box;
   margin-bottom: 4rem;
+  min-width: 100%;
 
   @include breakpoint($tablet) {
     margin-bottom: 2rem;
+    min-width: 33%;
   }
 }
 
