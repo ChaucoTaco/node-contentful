@@ -19,6 +19,18 @@ const PhotoBlock = (props) => {
     case 'stack-right':
       photoBlockType = styles.photoBlockStackRight;
       break;
+    case 'vertical':
+      photoBlockType = styles.photoBlockVertical;
+      break;
+    case 'three-two-three':
+      photoBlockType = styles.photoBlockThreeTwoThree;
+      break;
+    case 'stack-top':
+      photoBlockType = styles.photoBlockStackTop;
+      break;
+    case 'stack-bottom':
+      photoBlockType = styles.photoBlockStackBottom;
+      break;
     default:
       photoBlockType = styles.photoBlock;
   }

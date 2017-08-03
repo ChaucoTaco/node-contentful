@@ -44,6 +44,7 @@
   border-bottom: 1px solid $white;
   text-align: center;
   line-height: 1.25;
+  padding-bottom: 2rem;
 }
 
 .intro {
@@ -54,4 +55,39 @@
   color: $white;
   font-style: italic;
   line-height: 1.25;
+  padding: 0 3rem;
+  box-sizing: border-box;
+}
+
+.homeLink {
+  font-size: $fs-3;
+  margin: 0 3rem 6rem;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  width: 4rem;
+  text-align: center;
+  transition: opacity ease-in-out 200ms;
+  color: $white;
+  opacity: 1;
+  padding-top: 3rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $white;
+    transition: width ease-in-out 200ms;
+  }
+
+  &:hover {
+    opacity: 0.5;
+
+    &:after {
+      width: 0;
+    }
+  }
 }

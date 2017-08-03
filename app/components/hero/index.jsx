@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './index.scss';
 
 class Hero extends Component {
@@ -29,6 +30,7 @@ class Hero extends Component {
     return (
       <div className={styles.heroWrapper}>
         <div className={styles.header} style={backgroundImageUrl}>
+          <Link to="/" className={styles.homeLink}> Back </Link>
           <div className={styles.paragraphHolder}>
             <h1 className={styles.title}> {data.heroImage.title}</h1>
             <h2 className={styles.intro}>{data.heroImage.description}</h2>

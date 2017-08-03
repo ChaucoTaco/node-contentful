@@ -9,7 +9,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
   flex-wrap: wrap;
   @include breakpoint($tablet) {
     flex-wrap: nowrap;
