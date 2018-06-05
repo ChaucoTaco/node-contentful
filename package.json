@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "build": "webpack"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

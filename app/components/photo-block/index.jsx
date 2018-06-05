@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 const PhotoBlock = (props) => {
-  const data = props.data;
+  const { data, imageClick } = props;
   let photoBlockType;
 
   switch (data.galleryType) {
@@ -35,7 +35,6 @@ const PhotoBlock = (props) => {
       photoBlockType = styles.photoBlock;
   }
 
-
   return (
     <div className={photoBlockType}>
       <div className={styles.imageWrapper}>
@@ -43,7 +42,7 @@ const PhotoBlock = (props) => {
           data.photos.map((item, key) => {
             return (
               <div className={styles.imageContainer} key={key}>
-                <img className={styles.image} src={item.url} role="presentation" />
+                <img className={styles.image} src={item.url} role="presentation" onClick={imageClick} />
               </div>
             );
           })

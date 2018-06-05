@@ -1,18 +1,19 @@
 @import '../globals/variables.scss';
-
-.photoBlock {
-  max-width: 1024px;
+.photoBlockDefault {
+  max-width: 116rem;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.photoBlock {
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
 }
 
 .photoBlockSpread {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -31,9 +32,7 @@
 }
 
 .photoBlockStackRight {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -44,9 +43,7 @@
 }
 
 .photoBlockStackLeft {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -57,9 +54,7 @@
 }
 
 .photoBlockThreeTwoThree {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -75,9 +70,7 @@
 }
 
 .photoBlockVertical {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -90,9 +83,7 @@
 }
 
 .photoBlockStackTop {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -103,9 +94,7 @@
 }
 
 .photoBlockStackBottom {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  @extend .photoBlockDefault;
   @include breakpoint($tablet) {
     margin-bottom: 6rem;
   }
@@ -128,7 +117,7 @@
   padding: 0 10px;
   box-sizing: border-box;
   margin-bottom: 4rem;
-  min-width: 100%;
+  min-width: 100%;  
 
   @include breakpoint($tablet) {
     margin-bottom: 2rem;

@@ -31,7 +31,7 @@ class HomeWrapper extends Component {
             </p>
             <div>
               <span className={styles.emoji}>👸🏻</span>:Mostly Katie.<br />
-              <span className={styles.emoji}>📸</span>:Mostly Chau
+              <span className={styles.emoji}>📸</span>:Chau & Katie
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@
       "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
       "class-methods-use-this": "off",
       "array-callback-return": "off",
-      "no-console": "off"
+      "no-console": "off",
+      "max-len": 120
     }
 }

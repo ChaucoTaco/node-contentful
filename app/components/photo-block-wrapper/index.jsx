@@ -23,6 +23,8 @@ class PhotoBlockWrapper extends Component {
 
   render() {
     const data = this.state.data;
+    const {imageClick} = this.props;
+
     return (
       <div className={styles.photoWrapper}>
         {
@@ -33,7 +35,7 @@ class PhotoBlockWrapper extends Component {
                 offset={500}
                 key={key}
               >
-                <PhotoBlock data={item} />
+                <PhotoBlock data={item} imageClick={imageClick}/>
               </LazyLoad>
             );
           })
