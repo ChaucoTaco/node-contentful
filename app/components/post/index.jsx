@@ -19,7 +19,7 @@ class PostWrapper extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://dreamchasers.herokuapp.com/post/${this.props.match.params.id}`)
+    axios.get(`https://dreamchasers.herokuapp.com/title/${this.props.match.params.id}`)
       .then((data) => {
         this.setState({
           data: data.data,

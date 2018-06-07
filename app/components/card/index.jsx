@@ -7,7 +7,7 @@ const Card = (props) => {
   const data = props.data;
 
   return (
-    <Link to={`/${data.id}`} className={styles.homepageCard}>
+    <Link to={`/${data.slug}`} className={styles.homepageCard}>
       <img className={styles.image} src={data.heroImage.url} role="presentation" />
       <h1 className={styles.title}> {data.title}</h1>
     </Link>

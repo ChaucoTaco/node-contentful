@@ -13258,7 +13258,7 @@ var PostWrapper = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.get('https://dreamchasers.herokuapp.com/post/' + this.props.match.params.id).then(function (data) {
+      _axios2.default.get('https://dreamchasers.herokuapp.com/title/' + this.props.match.params.id).then(function (data) {
         _this2.setState({
           data: data.data
         });
@@ -14351,7 +14351,7 @@ var Card = function Card(props) {
 
   return _react2.default.createElement(
     _reactRouterDom.Link,
-    { to: '/' + data.id, className: _index2.default.homepageCard },
+    { to: '/' + data.slug, className: _index2.default.homepageCard },
     _react2.default.createElement('img', { className: _index2.default.image, src: data.heroImage.url, role: 'presentation' }),
     _react2.default.createElement(
       'h1',

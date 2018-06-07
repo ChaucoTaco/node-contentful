@@ -28,6 +28,7 @@ function parseReponse(res, data) {
   data.items.map((item) => {
     const itemObject = {
       title: '',
+      slug: '',
       id: '',
       heroImage: {
         url: '',
@@ -38,6 +39,7 @@ function parseReponse(res, data) {
       photoBlocks: [],
     };
     itemObject.title = item.fields.title;
+    itemObject.slug = item.fields.slug;
     itemObject.id = item.sys.id;
     itemObject.heroImage.url = item.fields.heroImage.fields.file.url;
     itemObject.heroImage.description = item.fields.heroImage.fields.description;
@@ -79,6 +81,7 @@ function parseReponseForHomepage(res, data) {
   data.items.map((item) => {
     const itemObject = {
       title: '',
+      slug: '',
       id: '',
       heroImage: {
         url: '',
@@ -88,6 +91,7 @@ function parseReponseForHomepage(res, data) {
       tags: '',
     };
     itemObject.title = item.fields.title;
+    itemObject.slug = item.fields.slug;
     itemObject.id = item.sys.id;
     itemObject.heroImage.url = item.fields.heroImage.fields.file.url;
     itemObject.heroImage.description = item.fields.heroImage.fields.description;
@@ -104,6 +108,7 @@ function parseReponseFromHomepage(res, data) {
   data.items[0].fields.homepageStories.map((item) => {
     const itemObject = {
       title: '',
+      slug: '',
       id: '',
       heroImage: {
         url: '',
@@ -113,6 +118,7 @@ function parseReponseFromHomepage(res, data) {
       tags: '',
     };
     itemObject.title = item.fields.title;
+    itemObject.slug = item.fields.slug;
     itemObject.id = item.sys.id;
     itemObject.heroImage.url = item.fields.heroImage.fields.file.url;
     itemObject.heroImage.description = item.fields.heroImage.fields.description;
@@ -180,6 +186,20 @@ app.get('/post/:id', (req, res) => {
   client.getEntries({
     content_type: 'post',
     'sys.id': req.params.id,
+  })
+  .then((data) => {
+    parseReponse(res, data);
+  })
+  .catch((error) => {
+    console.log('\nError occurred while fetching Content Types:');
+    console.error(error);
+  });
+});
+
+app.get('/title/:slug', (req, res) => {
+  client.getEntries({
+    content_type: 'post',
+    'fields.slug': req.params.slug,
   })
   .then((data) => {
     parseReponse(res, data);
